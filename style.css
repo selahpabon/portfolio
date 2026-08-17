@@ -276,6 +276,66 @@ body.home .site-footer {
   transform: translateY(-1px);
 }
 
+/* ---------- Home page: "currently looking for work" marquee ----------
+   Sits below the hero buttons, above the bottom nav. .marquee-track
+   holds two identical .marquee-set copies side by side; animating from
+   translateX(0) to translateX(-50%) (exactly one copy's width) loops
+   seamlessly. Each set repeats the phrase several times so the strip
+   stays full-looking on wide viewports. The visible text lives twice
+   over, so the track is aria-hidden and the real copy for screen
+   readers is the aria-label on the outer wrapper instead. */
+
+.marquee {
+  width: 100%;
+  overflow: hidden;
+  border-top: 1px solid var(--brown-faint);
+  border-bottom: 1px solid var(--brown-faint);
+  padding: 12px 0;
+  flex: 0 0 auto;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 22s linear infinite;
+}
+
+.marquee-set {
+  display: flex;
+  flex: 0 0 auto;
+}
+
+.marquee-item {
+  flex: 0 0 auto;
+  padding: 0 28px;
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.marquee-item::after {
+  content: '\2022';
+  margin-left: 28px;
+  color: var(--brown-faint);
+}
+
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
+
 /* ---------- Page content (about / work / resume) ---------- */
 
 .page {
