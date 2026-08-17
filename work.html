@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Work | Selah Pabon</title>
+  <link rel="stylesheet" href="https://use.typekit.net/hvx6tag.css">
+  <link rel="stylesheet" href="style.css?v=10">
+</head>
+<body>
+
+  <div class="eye-border">
+    <img src="assets/allbrowneyepattern.svg" alt="">
+  </div>
+
+  <main class="page">
+    <h1>My Work</h1>
+
+    <!-- ============ Featured Case Studies (2x2 grid) ============
+         Swap each placeholder-thumb for a real thumbnail image whenever
+         it's ready: the links below already point at the real case
+         study pages, so just remove the .placeholder-tag span. -->
+    <section class="featured-section" aria-labelledby="featured-heading">
+      <h2 id="featured-heading" class="section-heading">Featured Case Studies</h2>
+
+      <div class="featured-grid">
+        <a class="featured-card" href="case-studies/animal-indicators.html" data-case-study="animal-indicators" aria-label="View SIDEKiC case study">
+          <span class="featured-card-thumb">
+            <img src="assets/animal-indicators/final-map-zoomed-alerts.png" alt="">
+          </span>
+          <span class="featured-card-text">
+            <span class="featured-card-title">SIDEKiC</span>
+            <span class="featured-card-caption">A practitioner dashboard for reviewing AI-processed wildlife camera trap footage from the Congo Basin.</span>
+          </span>
+        </a>
+
+        <a class="featured-card" href="case-studies/digital-disparities.html" data-case-study="digital-disparities" aria-label="View Digital Disparities case study">
+          <span class="featured-card-thumb">
+            <img src="assets/digital-disparities/final-tract-detail-panel.png" alt="">
+          </span>
+          <span class="featured-card-text">
+            <span class="featured-card-title">Digital Disparities</span>
+            <span class="featured-card-caption">A data visualization tool exploring whether digital access gaps shape who receives substance use disorder treatment in St. Louis.</span>
+          </span>
+        </a>
+
+        <a class="featured-card" href="case-studies/dhss.html" data-case-study="dhss" aria-label="View WashU Care Navigation App case study">
+          <span class="featured-card-thumb">
+            <img src="assets/dhss/final-advanced-search.png" alt="">
+          </span>
+          <span class="featured-card-text">
+            <span class="featured-card-title">WashU Care Navigation App</span>
+            <span class="featured-card-caption">A tool that helps care navigators find accurate, up-to-date clinical and social services across Missouri.</span>
+          </span>
+        </a>
+
+        <a class="featured-card" href="case-studies/instagram-feed.html" data-case-study="instagram-feed-feature" aria-label="View Instagram Feed Feature case study">
+          <span class="featured-card-thumb">
+            <img src="assets/instagram-feed/final-walkthrough-feed-toggle-poster.png" alt="">
+          </span>
+          <span class="featured-card-text">
+            <span class="featured-card-title">Instagram Feed Feature</span>
+            <span class="featured-card-caption">A UX research project exploring whether more control over a social media feed can support well-being.</span>
+          </span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ============ Other Work (coverflow carousel) ============
+         Placeholder entries. Each card's data-* attributes feed the
+         detail panel in assets/work.js:
+           data-caption            one-line medium/subtitle
+           data-photo-count        number of photos in the panel viewer
+           data-pdf / data-pdf-label       "View PDF" action button
+           data-demo / data-demo-label     "Watch demo" action button
+           data-link / data-link-label     "View live site" action button
+           (action buttons only render when their data-* is present)
+           data-bg / data-materials / data-process / data-reflection
+             accordion section copy — omit an attribute entirely to
+             omit that section for a given piece
+           data-default-open       which accordion section starts open
+                                    (defaults to "bg" / Background & Why)
+         Swap the placeholder-thumb + photo blocks and this placeholder
+         copy for real images/content per project later; the JS/markup
+         wiring doesn't need to change. -->
+    <section class="other-work-section" aria-labelledby="other-work-heading">
+      <h2 id="other-work-heading" class="section-heading">Other Work</h2>
+
+      <!-- Carousel is blurred/inert behind a "coming soon" overlay until
+           this section's content is ready. Remove .other-work-coming-soon
+           and the .other-work-overlay block below (and the inert attribute
+           on #carousel) to re-enable it. -->
+      <div class="other-work-coming-soon">
+      <div class="carousel" id="carousel" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Other work carousel. Use left and right arrow keys, or swipe, to browse." inert>
+        <div class="carousel-viewport">
+          <button type="button" class="carousel-arrow carousel-arrow-prev" id="carousel-prev" aria-label="Previous work item">&#8249;</button>
+
+          <div class="carousel-track" id="carousel-track">
+            <button type="button" class="carousel-card"
+              data-title="The Art of the Blood Thieves"
+              data-caption="Bound short story book"
+              data-photo-count="4"
+              data-pdf="#" data-pdf-label="View PDF"
+              data-bg="[Background &amp; Why placeholder text]"
+              data-materials="[Materials placeholder text]"
+              data-process="[Process placeholder text]"
+              data-reflection="[Reflection placeholder text]"
+              aria-label="View The Art of the Blood Thieves, bound short story book">
+              <span class="placeholder-thumb carousel-card-thumb" aria-hidden="true">
+                <span class="placeholder-tag">Placeholder</span>
+              </span>
+              <span class="carousel-card-title">The Art of the Blood Thieves</span>
+            </button>
+
+            <button type="button" class="carousel-card"
+              data-title="Screen-Printed Baby Photo Book"
+              data-caption="Screen-printed photo book"
+              data-photo-count="3"
+              data-bg="[Background &amp; Why placeholder text]"
+              data-materials="[Materials placeholder text]"
+              data-process="[Process placeholder text]"
+              aria-label="View Screen-Printed Baby Photo Book, screen-printed photo book">
+              <span class="placeholder-thumb carousel-card-thumb" aria-hidden="true">
+                <span class="placeholder-tag">Placeholder</span>
+              </span>
+              <span class="carousel-card-title">Screen-Printed Baby Photo Book</span>
+            </button>
+
+            <button type="button" class="carousel-card"
+              data-title="Visual Texts + Gallery Site"
+              data-caption="Web design &amp; front-end build"
+              data-photo-count="5"
+              data-demo="#" data-demo-label="Watch demo"
+              data-link="#" data-link-label="Visit the gallery site"
+              data-bg="[Background &amp; Why placeholder text]"
+              data-materials="[Materials placeholder text]"
+              data-process="[Process placeholder text]"
+              data-reflection="[Reflection placeholder text]"
+              aria-label="View Visual Texts + Gallery Site, web design and front-end build">
+              <span class="placeholder-thumb carousel-card-thumb" aria-hidden="true">
+                <span class="placeholder-tag">Placeholder</span>
+              </span>
+              <span class="carousel-card-title">Visual Texts + Gallery Site</span>
+            </button>
+
+            <button type="button" class="carousel-card"
+              data-title="Book Jacket"
+              data-caption="Digitally made book jacket"
+              data-photo-count="3"
+              data-pdf="#" data-pdf-label="View PDF"
+              data-bg="[Background &amp; Why placeholder text]"
+              data-reflection="[Reflection placeholder text]"
+              aria-label="View Book Jacket, digitally made book jacket">
+              <span class="placeholder-thumb carousel-card-thumb" aria-hidden="true">
+                <span class="placeholder-tag">Placeholder</span>
+              </span>
+              <span class="carousel-card-title">Book Jacket</span>
+            </button>
+
+            <button type="button" class="carousel-card"
+              data-title="Anthropology Flyers"
+              data-caption="Print flyer series"
+              data-photo-count="4"
+              data-pdf="#" data-pdf-label="View PDF"
+              data-bg="[Background &amp; Why placeholder text]"
+              data-materials="[Materials placeholder text]"
+              data-process="[Process placeholder text]"
+              data-reflection="[Reflection placeholder text]"
+              aria-label="View Anthropology Flyers, print flyer series">
+              <span class="placeholder-thumb carousel-card-thumb" aria-hidden="true">
+                <span class="placeholder-tag">Placeholder</span>
+              </span>
+              <span class="carousel-card-title">Anthropology Flyers</span>
+            </button>
+
+            <button type="button" class="carousel-card"
+              data-title="Bookbinding Projects"
+              data-caption="Hand-bound book collection"
+              data-photo-count="5"
+              data-demo="#" data-demo-label="Watch demo"
+              data-bg="[Background &amp; Why placeholder text]"
+              data-materials="[Materials placeholder text]"
+              aria-label="View Bookbinding Projects, hand-bound book collection">
+              <span class="placeholder-thumb carousel-card-thumb" aria-hidden="true">
+                <span class="placeholder-tag">Placeholder</span>
+              </span>
+              <span class="carousel-card-title">Bookbinding Projects</span>
+            </button>
+          </div>
+
+          <button type="button" class="carousel-arrow carousel-arrow-next" id="carousel-next" aria-label="Next work item">&#8250;</button>
+        </div>
+
+        <div class="carousel-dots" id="carousel-dots" role="tablist" aria-label="Carousel position"></div>
+        <p class="carousel-hint">Swipe, drag, or use arrow keys to browse. Click a card to open its panel.</p>
+      </div>
+
+      <div class="other-work-overlay">
+        <p class="other-work-overlay-text">Other design work coming soon</p>
+      </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ Work detail panel ============
+       Layout order (top to bottom): photo carousel, title + subtitle,
+       conditional action buttons, then the four-section accordion.
+       The actions row and accordion sections are built dynamically in
+       assets/work.js from the opening card's data-* attributes, so a
+       piece with no PDF/demo/link gets no actions row, and a piece
+       missing e.g. Process or Reflection content just doesn't get that
+       accordion section — nothing renders empty or disabled. -->
+  <div class="work-panel-backdrop" id="work-panel-backdrop" hidden></div>
+  <div class="work-panel" id="work-panel" role="dialog" aria-modal="true" aria-labelledby="work-panel-title" hidden>
+    <button type="button" class="work-panel-close" id="work-panel-close" aria-label="Close">&times;</button>
+
+    <div class="work-panel-photo-viewer" id="work-panel-photo-viewer">
+      <button type="button" class="work-panel-photo-nav work-panel-photo-prev" id="work-panel-photo-prev" aria-label="Previous photo">&#8249;</button>
+      <div class="work-panel-photo-stage" id="work-panel-photo-stage"></div>
+      <button type="button" class="work-panel-photo-nav work-panel-photo-next" id="work-panel-photo-next" aria-label="Next photo">&#8250;</button>
+    </div>
+    <p class="work-panel-photo-count" id="work-panel-photo-count"></p>
+
+    <h3 class="work-panel-title" id="work-panel-title"></h3>
+    <p class="work-panel-caption" id="work-panel-caption"></p>
+
+    <div class="work-panel-actions" id="work-panel-actions"></div>
+
+    <div class="work-panel-accordion" id="work-panel-accordion"></div>
+  </div>
+
+  <nav class="site-nav">
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="work.html" class="active">Work</a></li>
+      <li><a href="resume.html">Resume</a></li>
+    </ul>
+  </nav>
+
+  <footer class="site-footer">
+    &copy; 2026 Selah Pabon
+  </footer>
+
+  <script src="assets/work.js" defer></script>
+</body>
+</html>

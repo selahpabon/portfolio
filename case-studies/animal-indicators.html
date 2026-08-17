@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animal Indicators | Selah Pabon</title>
+  <link rel="stylesheet" href="https://use.typekit.net/hvx6tag.css">
+  <link rel="stylesheet" href="../style.css?v=9">
+  <link rel="stylesheet" href="case-study.css">
+</head>
+<body>
+
+  <div class="eye-border">
+    <img src="../assets/allbrowneyepattern.svg" alt="">
+  </div>
+
+  <main class="page cs-page">
+    <a class="cs-back-link" href="../work.html">&larr; Back to Work</a>
+
+    <!-- 1. Hero -->
+    <header class="cs-hero">
+      <h1 class="cs-hero-title">Animal Indicators</h1>
+      <p class="cs-hero-summary">SIDEKiC: Species Identification and Distance Estimation for Kinematics and Conservation. A practitioner dashboard for reviewing AI-processed wildlife camera trap footage from the Congo Basin, built for conservation researchers and field staff instead of data scientists.</p>
+      <dl class="cs-hero-meta">
+        <div class="cs-hero-meta-item">
+          <dt>Role</dt>
+          <dd>Product / UX Designer</dd>
+        </div>
+        <div class="cs-hero-meta-item">
+          <dt>Tools</dt>
+          <dd>Figma, RIS, Vite, React, Leaflet</dd>
+        </div>
+        <div class="cs-hero-meta-item">
+          <dt>Timeline</dt>
+          <dd>10-week summer engagement (WashU DTRC)</dd>
+        </div>
+      </dl>
+    </header>
+
+    <!-- 2. Hook -->
+    <section class="cs-section cs-hook" aria-labelledby="hook-heading">
+      <h2 id="hook-heading" class="cs-section-heading">The Short Version</h2>
+      <p class="cs-hook-text">Camera traps across the Congo Basin generate more than 250,000 video clips a year, and reviewing that footage by hand takes an estimated 2,500 hours annually. Losing behaviors like tool use is often an early warning sign of ecological stress that can show up well before a population actually crashes; chimpanzee communities in high-human-impact areas already show an 88% lower rate of natural behaviors. The problem wasn't a lack of data; it was that nobody had built a way to turn that data into something a conservation manager could act on.</p>
+    </section>
+
+    <!-- 3. Context / Problem -->
+    <section class="cs-section" aria-labelledby="context-heading">
+      <h2 id="context-heading" class="cs-section-heading">Context &amp; Problem</h2>
+      <p>Animal Indicators started as a 10-week summer project through Washington University in St. Louis's Digital Transformation Research Corps (DTRC). The research team, led by Principal Investigator Crickette Sanz, had already built an automated pipeline chaining together animal detection, species classification, distance estimation, behavioral classification, and individual recognition to process camera trap footage from three field sites in the Republic of Congo: Goualougo Triangle, Mondika, and Djéké Triangle.</p>
+      <p>The pipeline's output lived in FiftyOne, an open-source tool built for data scientists: usable if you already understand model confidence scores and metadata structures, but not for a field ranger or program manager without that background. As the dev team lead put it during an early demo, FiftyOne is "difficult or overwhelming for an everyday resident, researcher, etc." My job was to design a new interface from scratch, called SIDEKiC, that different kinds of users (from field practitioners with limited connectivity to researchers who need raw data exports) could actually use.</p>
+
+      <div class="cs-disclosure">
+        <p>The data shown has been replaced with placeholder values to protect the privacy of the original dataset; the visualization system and design decisions reflect the real project.</p>
+        <p>This is the foundation phase of an ongoing initiative visualizing animal population trends for conservation audiences; future iterations will expand the dataset and scope, either by me or collaborating designers.</p>
+      </div>
+    </section>
+
+    <!-- 4. Process -->
+    <section class="cs-section" aria-labelledby="process-heading">
+      <h2 id="process-heading" class="cs-section-heading">Process</h2>
+      <p>Before touching any layout, I worked through six research questions and five design-strategy questions covering how practitioners already work in the field, what existing conservation dashboards get right and wrong, the behavioral science behind the project's premise, connectivity and device constraints, and how to design one interface that serves both expert and non-expert users. A few decisions shaped everything that followed:</p>
+
+      <div class="cs-decision">
+        <h3 class="cs-decision-heading">Research before screens</h3>
+        <p>Global Forest Watch became a cautionary example: a technically impressive tool that, in a practitioner's own words, taught the team that "data alone doesn't create conservation impact." That reframed the guiding question for every screen from "what data can we show" to "what decision does this screen help someone make." eBird Status and Trends, built by the Cornell Lab of Ornithology, became the primary precedent in the other direction, since it serves casual birders and professional scientists through the same system by showing a simple view by default and putting the full dataset behind a "download data" option. I carried that same principle into SIDEKiC: a plain-language main dashboard for quick decisions, with a separate, easily accessible research page underneath it for anyone who wants the raw data.</p>
+          <figure class="cs-figure">
+            <span class="cs-figure-thumb">
+              <img src="../assets/animal-indicators/process-research-board.png" alt="Research board collecting comparable wildlife and conservation dashboards alongside early hand-drawn sketches exploring the dashboard layout and alert system">
+            </span>
+            <figcaption class="cs-figure-caption">Early research board: dashboard precedents (including Global Forest Watch and eBird Status and Trends) next to first-pass sketches of the alert feed, map, and site cards.</figcaption>
+          </figure>
+      </div>
+
+      <div class="cs-decision">
+        <h3 class="cs-decision-heading">Designing for the field, not the office</h3>
+        <p>Mobile internet penetration across sub-Saharan Africa sits around 27&ndash;28%, and camera trap data here is physically carried out on hard drives roughly every four months rather than uploaded live, which ruled out any design built around real-time syncing. That made offline-first patterns and French-language support requirements from day one rather than later additions, since the Republic of Congo is Francophone. Data ethics research shaped access more broadly, too: over 90% of camera trap projects unintentionally capture images of humans, and publishing precise locations of rare species has led to poaching within months, which pushed me to look closely at the CARE Principles for Indigenous Data Governance. The tool is currently only accessible to Sanz's team, with wider access planned as a future phase. A live demo with the dev team was also a turning point: it confirmed the direction to build a new dashboard rather than skin the existing tool, and two features I proposed (a natural-language chat bar and a map visualization of species detections) were confirmed and carried forward.</p>
+        <figure class="cs-figure">
+          <span class="cs-figure-thumb">
+            <img src="../assets/animal-indicators/process-wireframe-dashboard-flow.png" alt="Annotated wireframe of the dashboard flow, showing the alert feed, AI-powered chat bar, interactive map with summary panel, and per-site overview cards">
+          </span>
+          <figcaption class="cs-figure-caption">Annotated wireframe of the full dashboard flow (alert feed, chat bar, map, and site cards) from the round of design reviewed with the dev team.</figcaption>
+        </figure>
+      </div>
+
+      <div class="cs-decision">
+        <h3 class="cs-decision-heading">Narrowing an alert system built to catch everything</h3>
+        <p>Early on, the goal was comprehensive coverage: flagging anything that might matter to a practitioner, from security concerns like a human bypassing a camera's trigger zone to ecological signals like an unusually low frequency of a behavior. That comprehensive version quickly became noisy and hard to scan, so I went through several rounds of narrowing the list down, grouping similar alerts, cutting ones that overlapped or rarely fired, and organizing what remained into three broader categories: security concerns, needs-attention items, and wildlife highlights. What started as a sprawling list eventually shrank to 11 distinct alert types, each tied to a color and grouped by severity, so the alert feed stays scannable at a glance.</p>
+        <figure class="cs-figure">
+          <span class="cs-figure-thumb">
+            <img src="../assets/animal-indicators/process-wireframe-gallery-view.png" alt="Annotated wireframe of the gallery view, showing review-status flags, tags, and filters on video clip thumbnails">
+          </span>
+          <figcaption class="cs-figure-caption">Annotated wireframe of the gallery view, where the narrowed alert/tag system first had to work at the scale of individual clips.</figcaption>
+        </figure>
+      </div>
+
+      <div class="cs-decision">
+        <h3 class="cs-decision-heading">Scoping the annotation tool to what the pipeline could support</h3>
+        <p>I looked at annotation tools the dev team was evaluating, including CVAT and SLEAP, to understand what correction and labeling workflows the dashboard needed to support. Based on direct guidance from the dev team, I scoped the annotation feature down to single-frame corrections rather than the more complex auto-propagation originally envisioned. A separate, unresolved question from this stage: Washington University's official brand palette leads with a strong red, which conflicted with red already doing semantic work in the dashboard as the signal for security concerns and declining trends. I resolved that by keeping WashU red to a supporting role and building the rest of the visual system around teal and gold, which also map to the three field sites.</p>
+        <figure class="cs-figure">
+          <span class="cs-figure-thumb">
+            <img src="../assets/animal-indicators/process-wireframe-clip-editor.png" alt="Annotated wireframe of the clip video editor, showing bounding boxes, distance-between-animals lines, and collapsible tracks and detections panels">
+          </span>
+          <figcaption class="cs-figure-caption">Annotated wireframe of the clip editor, scoped down to single-frame label and confidence corrections per direct guidance from the dev team.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 5. Final Solution -->
+    <section class="cs-section" aria-labelledby="solution-heading">
+      <h2 id="solution-heading" class="cs-section-heading">Final Solution</h2>
+      <p>The result is SIDEKiC, a purpose-built practitioner dashboard, not a reskin of the existing pipeline tool. It's split into two connected spaces: a main dashboard meant for quick, non-technical decisions, and a separate, easily accessible research page underneath it that holds the raw data for anyone who wants to dig in.</p>
+
+      <figure class="cs-figure">
+        <span class="cs-figure-thumb">
+          <img src="../assets/animal-indicators/final-dashboard-home.png" alt="SIDEKiC dashboard home screen showing three plain-language alert cards and an AI chat bar for asking questions about the data">
+        </span>
+        <figcaption class="cs-figure-caption">The main dashboard opens with current alerts written in plain language, color-coded by severity and tied to a site and timestamp, plus a chat bar for asking a question directly instead of digging through menus.</figcaption>
+      </figure>
+
+      <figure class="cs-figure">
+        <span class="cs-figure-thumb">
+          <img src="../assets/animal-indicators/final-dashboard-map-view.png" alt="SIDEKiC map view showing the three field sites with a collapsible alert-type summary panel and filters for clip info, detections, pipeline stage, and map layers">
+        </span>
+        <figcaption class="cs-figure-caption">The map view layers detection density and alert activity across the three field sites, with filters for clip info, detections, pipeline stage, and map/context layers.</figcaption>
+      </figure>
+
+      <figure class="cs-figure">
+        <span class="cs-figure-thumb">
+          <img src="../assets/animal-indicators/final-site-overview-cards.png" alt="Three site overview cards for Mondika, Djéké Triangle, and Goualougo Triangle showing camera count, coverage window, alert activity, and species detected">
+        </span>
+        <figcaption class="cs-figure-caption">Each site has its own overview card: camera count and coverage window, alert activity split into security concerns, needs-attention items, and wildlife highlights, and the species detected there so far.</figcaption>
+      </figure>
+
+      <figure class="cs-figure">
+        <span class="cs-figure-thumb">
+          <img src="../assets/animal-indicators/final-data-detections-trends.png" alt="Research page Detections and Behavioral Trends tab showing total detections, species observed, videos processed, and a detection-volume-over-time chart by species">
+        </span>
+        <figcaption class="cs-figure-caption">On the research page, the Detections &amp; Behavioral Trends tab shows totals for the current batch plus a detection-volume chart broken out by species over time.</figcaption>
+      </figure>
+
+      <figure class="cs-figure">
+        <span class="cs-figure-thumb">
+          <img src="../assets/animal-indicators/final-data-model-quality.png" alt="Research page Model and Data Quality tab showing confidence by species and by site, and a pipeline workflow log listing model versions per batch">
+        </span>
+        <figcaption class="cs-figure-caption">The Model &amp; Data Quality tab splits confidence into research grade, needs review, and low confidence, and logs which model version ran on which batch, both scoped to single-frame corrections rather than auto-propagation.</figcaption>
+      </figure>
+
+      <p>The dashboard tracks behavior using the same categories the research team already uses in the field: ongoing states like traveling, feeding, resting, and social interaction, and higher-value events like tool use and tool transfer, which the team treats as some of the strongest cultural and ecological signals. Visually, SIDEKiC stays clean and light by default, with color-coded badges and cards instead of dense tables so a practitioner can scan status at a glance; confidence is always shown as a plain category rather than a raw score, though the number is available on the research page for anyone who wants it. The interface supports French from the start, meets WCAG 2.1 AA accessibility standards, and includes a fully-supported dark mode.</p>
+
+      <div class="cs-video-wrap cs-video-final">
+        <!-- Real clips, sped up 2x: final-walkthrough-gallery-review.mp4, final-walkthrough-map-filters.mp4, final-walkthrough-profile-settings.mp4 -->
+        <p class="cs-video-label">Final walkthrough: sped up 2&times;</p>
+        <div class="cs-video-group">
+          <div>
+            <video class="cs-video" poster="../assets/animal-indicators/final-walkthrough-gallery-review-poster.png" controls preload="none" aria-label="Sped-up walkthrough of the gallery clip review flow">
+              <source src="../assets/animal-indicators/final-walkthrough-gallery-review.mp4" type="video/mp4">
+              Your browser does not support embedded video.
+            </video>
+            <p class="cs-video-note">Gallery clip review</p>
+          </div>
+          <div>
+            <video class="cs-video" poster="../assets/animal-indicators/final-walkthrough-map-filters-poster.png" controls preload="none" aria-label="Sped-up walkthrough of map filters and the alert feed">
+              <source src="../assets/animal-indicators/final-walkthrough-map-filters.mp4" type="video/mp4">
+              Your browser does not support embedded video.
+            </video>
+            <p class="cs-video-note">Map filters &amp; alert feed</p>
+          </div>
+          <div>
+            <video class="cs-video" poster="../assets/animal-indicators/final-walkthrough-profile-settings-poster.png" controls preload="none" aria-label="Sped-up walkthrough of profile and accessibility settings">
+              <source src="../assets/animal-indicators/final-walkthrough-profile-settings.mp4" type="video/mp4">
+              Your browser does not support embedded video.
+            </video>
+            <p class="cs-video-note">Profile &amp; accessibility settings</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Outcome -->
+    <section class="cs-section" aria-labelledby="outcome-heading">
+      <h2 id="outcome-heading" class="cs-section-heading">Outcome</h2>
+      <p>This was a 10-week foundation phase, not a full product launch, so there isn't hard usage data yet: the concrete outcome so far is qualitative. The research team responded well to the direction and sees SIDEKiC having a real impact on the conservation field once it's fully built out.</p>
+    </section>
+
+    <!-- 7. Reflection -->
+    <section class="cs-section cs-reflection" aria-labelledby="reflection-heading">
+      <h2 id="reflection-heading" class="cs-section-heading">Reflection</h2>
+      <p>This project pushed my research skills further than any project before it and meant translating the same idea for very different audiences (developers, researchers, and PIs), each needing it explained a different way; every screen went through a lot of iteration, since the priority was always making information easy to find and quick to read, not just complete.</p>
+      <p>If I had more time, I'd want to work on the tool's branding and logo and add some lighthearted touches, like animal-themed profile icons and custom icons for the SIDEKiC AI assistant, to give the tool a bit more personality.</p>
+    </section>
+  </main>
+
+  <nav class="site-nav">
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../work.html" class="active">Work</a></li>
+      <li><a href="../resume.html">Resume</a></li>
+    </ul>
+  </nav>
+
+  <footer class="site-footer">
+    &copy; 2026 Selah Pabon
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,1072 @@
+/* ===========================================================
+   Selah Pabon | Portfolio
+   =========================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Pirata+One&display=swap');
+
+/* Degular and Gorgias load from the Adobe Fonts (Typekit) kit linked in
+   each page's <head> (use.typekit.net/hvx6tag.css). Inter / Pirata One
+   below remain as fallbacks in case that kit fails to load. */
+
+:root {
+  --bg: #e6f5ff;
+  --brown: #411900;
+  --brown-soft: rgba(65, 25, 0, 0.75);
+  --brown-faint: rgba(65, 25, 0, 0.35);
+  --max-width: 1100px;
+
+  --font-heading: 'Degular', 'Inter', sans-serif;
+  --font-quote: 'Gorgias', 'Pirata One', serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--brown);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+body.home {
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  --hero-photo-w: min(37.5vw, 610px);
+
+  /* photo sized as a fraction of the ring, but kept as its own vars so
+     its top offset can be computed against 50vh directly (below) --
+     that's what makes it centered on the viewport at any window height,
+     rather than just at whatever height it was last measured against. */
+  --photo-w: calc(var(--hero-photo-w) * 0.6133);
+  --photo-h: calc(var(--photo-w) * 431 / 272);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Belt-and-suspenders: some elements below (e.g. .btn) set their own
+   unconditional `display`, which (being an author rule) beats the
+   browser's default `[hidden] { display: none }` regardless of source
+   order. `!important` guarantees `hidden` always wins. */
+[hidden] {
+  display: none !important;
+}
+
+/* ---------- Bottom nav ---------- */
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: var(--max-width);
+  width: 100%;
+  margin: 48px auto 0;
+  padding: 0 32px 0;
+  flex: 0 0 auto;
+  box-sizing: border-box;
+}
+
+body.home .site-nav {
+  margin-top: 0;
+}
+
+body.home .site-footer {
+  flex: 0 0 auto;
+  padding: 16px 32px;
+}
+
+.site-nav .wordmark {
+  display: none;
+}
+
+.site-nav .nav-links {
+  display: flex;
+  gap: 18px;
+  list-style: none;
+  margin: 0;
+  padding: 14px 25px 0;
+  border-top: 1px solid var(--brown-faint);
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--brown-soft);
+}
+
+.site-nav .nav-links li a {
+  position: relative;
+  padding-bottom: 2px;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.site-nav .nav-links li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: 0;
+  height: 1px;
+  background: var(--brown-soft);
+  transition: right 0.25s ease;
+}
+
+.site-nav .nav-links li a:hover,
+.site-nav .nav-links li a.active {
+  opacity: 1;
+}
+
+.site-nav .nav-links li a:hover::after,
+.site-nav .nav-links li a.active::after {
+  right: 0;
+}
+
+.site-nav .nav-links li a.active {
+  font-weight: 600;
+}
+
+/* ---------- Eye pattern border ---------- */
+
+.eye-border {
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  margin-top: 24px;
+  padding: 0 32px;
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.eye-border img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ---------- Hero (home page) ---------- */
+
+.hero {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 16px 32px 16px calc(var(--hero-photo-w) + 36px);
+  display: flex;
+  align-items: center;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+/* Photo + decorative rings, geometry taken directly from Profile.svg
+   (404x599 viewBox): rings fill the box, photo sits at
+   x:66 y:93 w:272 h:431 (the exact pixel size of mepic.png), so the
+   photo is never cropped or distorted, just scaled up uniformly.
+
+   Positioned absolutely so its left edge is flush with the viewport
+   edge, and it sits *behind* the eye-pattern border (z-index 2 above)
+   so the pattern visibly overlaps the top of the ring. */
+
+.hero-photo {
+  position: absolute;
+  left: -2.75px;
+  top: 12px;
+  z-index: 1;
+  width: var(--hero-photo-w);
+  aspect-ratio: 404 / 599;
+}
+
+.hero-photo .rings {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.hero-photo img.photo {
+  position: absolute;
+  z-index: 1;
+  /* true viewport-centered: 50vh minus half the photo's own height,
+     minus the ring's fixed 12px top offset (img.photo's top is
+     relative to .hero-photo, not the viewport) */
+  top: calc(50vh - (var(--photo-h) / 2) - 12px);
+  left: 21.37%;
+  width: var(--photo-w);
+  height: var(--photo-h);
+  border-radius: 4.5%;
+  object-fit: contain;
+}
+
+.hero-text {
+  flex: 1 1 auto;
+  position: relative;
+  left: -30px;
+}
+
+.hero-text .intro {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: 2.1rem;
+  line-height: 1.25;
+  margin: 0 0 18px;
+  position: relative;
+  left: -95px;
+  white-space: nowrap;
+}
+
+.hero-text .quote {
+  font-family: var(--font-quote);
+  font-size: 3.2rem;
+  line-height: 1.1;
+  margin: 0 0 8px;
+  white-space: nowrap;
+}
+
+.hero-text .tagline {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--brown-soft);
+  margin: 0 0 64px;
+  position: relative;
+  left: 22px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-block;
+  padding: 14px 30px;
+  border: 1.5px solid var(--brown);
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--brown);
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
+}
+
+.btn:hover {
+  background: var(--brown);
+  color: var(--bg);
+  transform: translateY(-1px);
+}
+
+/* ---------- Page content (about / work / resume) ---------- */
+
+.page {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 56px 32px 96px;
+}
+
+.page h1 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 2.6rem;
+  margin: 0 0 40px;
+}
+
+.page p {
+  max-width: 780px;
+  margin: 0 0 28px;
+  font-size: 1.05rem;
+}
+
+/* ---------- Work page placeholder ---------- */
+
+.coming-soon {
+  border: 1.5px dashed var(--brown-faint);
+  border-radius: 16px;
+  padding: 64px 32px;
+  text-align: center;
+  max-width: 780px;
+}
+
+.coming-soon p {
+  margin: 0;
+  font-style: italic;
+  color: var(--brown-soft);
+}
+
+/* ---------- Work page: shared section heading ---------- */
+
+.section-heading {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 1.5rem;
+  margin: 0 0 24px;
+}
+
+/* ---------- Work page: placeholder thumbnails ----------
+   Shared "obviously a placeholder" look for both the featured grid
+   and the carousel cards, plus the detail panel's photo blocks.
+   Swap for real images later and drop the .placeholder-tag span. */
+
+.placeholder-thumb {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 12px;
+  border: 1.5px solid var(--brown-faint);
+  background: repeating-linear-gradient(
+    135deg,
+    rgba(65, 25, 0, 0.06) 0px,
+    rgba(65, 25, 0, 0.06) 14px,
+    rgba(65, 25, 0, 0.12) 14px,
+    rgba(65, 25, 0, 0.12) 28px
+  );
+  overflow: hidden;
+  transition: border-color 0.2s ease;
+}
+
+.placeholder-tag {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 0.65rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--bg);
+  border: 1px solid var(--brown-faint);
+  color: var(--brown-soft);
+}
+
+/* ---------- Work page: Featured Case Studies grid ---------- */
+
+.featured-section {
+  margin-bottom: 64px;
+}
+
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+}
+
+.featured-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  text-decoration: none;
+  color: var(--brown);
+}
+
+/* Base box shape/border shared by placeholder thumbs and real-image
+   thumbs alike, so a card looks the same once its image is swapped in. */
+.featured-card-thumb {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 12px;
+  border: 1.5px solid var(--brown-faint);
+  overflow: hidden;
+  transition: border-color 0.2s ease;
+}
+
+.featured-card-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 40% center;
+  display: block;
+}
+
+/* Instagram Feed Feature thumbnail: a tall portrait phone screenshot
+   in a landscape 4:3 box. Cover it so it fills the box edge-to-edge
+   (no letterboxing), positioned toward the top so the crop stays on
+   the open feed dropdown, where the circled feed name sits. */
+.featured-card[data-case-study="instagram-feed-feature"] .featured-card-thumb img {
+  object-fit: cover;
+  object-position: 50% 10%;
+}
+
+/* Digital Disparities thumbnail: shift right past the map-layer sidebar so
+   the crop lands on the blue tract map + open detail panel instead. */
+.featured-card[data-case-study="digital-disparities"] .featured-card-thumb img {
+  object-position: 82% center;
+}
+
+.featured-card:hover .featured-card-thumb {
+  border-color: var(--brown);
+}
+
+.featured-card:focus-visible .featured-card-thumb {
+  outline: 2px solid var(--brown);
+  outline-offset: 3px;
+}
+
+.featured-card-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.featured-card-title {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.featured-card-caption {
+  font-size: 0.82rem;
+  line-height: 1.4;
+  color: var(--brown-soft);
+}
+
+/* ---------- Work page: Other Work carousel (coverflow) ---------- */
+
+.other-work-section {
+  margin-bottom: 40px;
+}
+
+.carousel {
+  position: relative;
+  outline: none;
+  border-radius: 12px;
+}
+
+.carousel:focus-visible {
+  outline: 2px solid var(--brown);
+  outline-offset: 8px;
+}
+
+.carousel-viewport {
+  position: relative;
+}
+
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1.5px solid var(--brown-faint);
+  background: var(--bg);
+  color: var(--brown);
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 2;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.carousel-arrow:hover,
+.carousel-arrow:focus-visible {
+  background: var(--brown);
+  color: var(--bg);
+}
+
+.carousel-arrow-prev {
+  left: 4px;
+}
+
+.carousel-arrow-next {
+  right: 4px;
+}
+
+.carousel-track {
+  display: flex;
+  align-items: flex-start;
+  gap: 48px;
+  padding: 40px calc(50% - 130px);
+  margin: 0 -32px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  cursor: grab;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-track.dragging {
+  cursor: grabbing;
+  scroll-snap-type: none;
+}
+
+.carousel-card {
+  flex: 0 0 auto;
+  width: 260px;
+  scroll-snap-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: var(--brown);
+  cursor: pointer;
+  outline: none;
+  will-change: transform, filter, opacity;
+}
+
+.carousel-card:focus-visible .placeholder-thumb {
+  outline: 2px solid var(--brown);
+  outline-offset: 3px;
+}
+
+.carousel-card .placeholder-thumb {
+  aspect-ratio: 3 / 4;
+}
+
+.carousel-card-title {
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.carousel-dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border-radius: 999px;
+  border: 1.5px solid var(--brown-faint);
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, width 0.2s ease;
+}
+
+.carousel-dot.is-active {
+  width: 22px;
+  background: var(--brown);
+  border-color: var(--brown);
+}
+
+.carousel .carousel-hint {
+  text-align: center;
+  font-style: italic;
+  font-size: 0.8rem;
+  color: var(--brown-soft);
+  max-width: none;
+  margin: 40px 0 0;
+}
+
+/* ---------- Work page: Other Work "coming soon" overlay ----------
+   Blurs/disables the carousel (inert in the HTML) and covers it with a
+   centered message until real content is ready. Remove the
+   .other-work-coming-soon wrapper + .other-work-overlay markup and the
+   inert attribute on #carousel in work.html to re-enable browsing. */
+
+.other-work-coming-soon {
+  position: relative;
+}
+
+.other-work-coming-soon .carousel {
+  filter: blur(7px);
+  user-select: none;
+}
+
+.other-work-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  text-align: center;
+}
+
+.other-work-overlay-text {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--brown);
+  background: var(--bg);
+  border: 1.5px solid var(--brown-faint);
+  border-radius: 999px;
+  padding: 14px 32px;
+  margin: 0;
+  box-shadow: 0 8px 28px rgba(65, 25, 0, 0.15);
+}
+
+/* ---------- Work page: detail panel ---------- */
+
+.work-panel-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(65, 25, 0, 0.45);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  z-index: 10;
+}
+
+.work-panel-backdrop.is-open {
+  opacity: 1;
+}
+
+.work-panel {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: min(560px, calc(100vw - 48px));
+  max-height: min(680px, calc(100vh - 48px));
+  overflow-y: auto;
+  background: var(--bg);
+  border: 1.5px solid var(--brown);
+  border-radius: 20px;
+  padding: 40px;
+  box-sizing: border-box;
+  transform: translate(-50%, -50%) scale(0.96);
+  opacity: 0;
+  z-index: 11;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.work-panel.is-open {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.work-panel-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1.5px solid var(--brown-faint);
+  background: transparent;
+  color: var(--brown);
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.work-panel-close:hover,
+.work-panel-close:focus-visible {
+  background: var(--brown);
+  color: var(--bg);
+}
+
+.work-panel-title {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 1.5rem;
+  margin: 0 32px 6px 0;
+}
+
+.work-panel-caption {
+  font-style: italic;
+  color: var(--brown-soft);
+  margin: 0 0 24px;
+}
+
+.work-panel-photo-viewer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 10px;
+}
+
+.work-panel-photo-stage {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.work-panel-photo {
+  aspect-ratio: 4 / 3;
+  border-radius: 10px;
+  border: 1.5px solid var(--brown-faint);
+  background: repeating-linear-gradient(
+    135deg,
+    rgba(65, 25, 0, 0.06) 0px,
+    rgba(65, 25, 0, 0.06) 14px,
+    rgba(65, 25, 0, 0.12) 14px,
+    rgba(65, 25, 0, 0.12) 28px
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  color: var(--brown-soft);
+}
+
+.work-panel-photo-nav {
+  flex: 0 0 auto;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1.5px solid var(--brown-faint);
+  background: transparent;
+  color: var(--brown);
+  font-size: 1.3rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.work-panel-photo-nav:hover,
+.work-panel-photo-nav:focus-visible {
+  background: var(--brown);
+  color: var(--bg);
+}
+
+.work-panel-photo-count {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--brown-soft);
+  margin: 0 0 4px;
+}
+
+.work-panel-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0 0 24px;
+}
+
+.work-panel-actions[hidden] {
+  display: none;
+}
+
+.work-panel-action-btn {
+  padding: 8px 20px;
+  font-size: 0.85rem;
+}
+
+.work-panel-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.work-panel-accordion-section {
+  border: 1.5px solid var(--brown-faint);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.work-panel-accordion-section summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 18px;
+  font-weight: 500;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+}
+
+.work-panel-accordion-section summary::-webkit-details-marker {
+  display: none;
+}
+
+.work-panel-accordion-section summary::after {
+  content: '+';
+  flex: 0 0 auto;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1.5px solid var(--brown-faint);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  line-height: 1;
+  transition: border-color 0.2s ease;
+}
+
+.work-panel-accordion-section[open] summary::after {
+  content: '\2212';
+}
+
+.work-panel-accordion-section summary:hover::after,
+.work-panel-accordion-section summary:focus-visible::after {
+  border-color: var(--brown);
+}
+
+.work-panel-accordion-section > p {
+  margin: 0;
+  padding: 0 18px 16px;
+  font-size: 0.9rem;
+  color: var(--brown-soft);
+}
+
+body.panel-open {
+  overflow: hidden;
+}
+
+/* ---------- Resume page ---------- */
+
+.resume-header {
+  display: flex;
+  justify-content: flex-end;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 20px 32px 0;
+}
+
+.resume-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 26px;
+}
+
+.resume-title {
+  text-align: left;
+  margin-bottom: 8px;
+}
+
+.resume-name {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 2.8rem;
+  letter-spacing: 0.03em;
+  margin: 0;
+}
+
+.resume-role {
+  font-style: italic;
+  color: var(--brown-soft);
+  margin: 4px 0 8px;
+}
+
+.resume-contact {
+  font-size: 0.95rem;
+  color: var(--brown-soft);
+  margin: 0 0 40px;
+}
+
+.resume-contact a:hover {
+  text-decoration: underline;
+}
+
+.resume-section {
+  margin-bottom: 40px;
+}
+
+.resume-section h2 {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  border-bottom: 1.5px solid var(--brown);
+  padding-bottom: 6px;
+  margin: 0 0 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.resume-entry {
+  margin-bottom: 22px;
+}
+
+.resume-entry:last-child {
+  margin-bottom: 0;
+}
+
+.resume-entry-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.resume-entry-sub {
+  font-style: italic;
+  color: var(--brown-soft);
+  margin: 2px 0 10px;
+  font-size: 0.95rem;
+}
+
+.resume-entry ul {
+  margin: 10px 0 0;
+  padding-left: 20px;
+}
+
+.resume-entry li {
+  margin-bottom: 6px;
+  font-size: 0.98rem;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+
+.skills-grid h3 {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1.05rem;
+  margin: 0 0 10px;
+}
+
+.skills-grid ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.skills-grid li {
+  margin-bottom: 8px;
+  font-size: 0.98rem;
+}
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+  text-align: center;
+  padding: 32px;
+  font-size: 0.65rem;
+  color: var(--brown-soft);
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 800px) {
+  /* Below this width the hero stacks vertically and needs more room
+     than a single viewport can offer, so let the home page scroll here
+     instead of squeezing everything in. */
+  body.home {
+    height: auto;
+    overflow: visible;
+    display: block;
+  }
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 24px 32px 40px;
+  }
+
+  .hero-photo {
+    position: static;
+    left: auto;
+    top: auto;
+    z-index: auto;
+    margin: 0 auto 24px;
+    height: min(46vh, 420px);
+    width: auto;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .site-nav .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px 18px;
+  }
+
+  body.home .site-nav {
+    margin-top: 32px;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .resume-header {
+    justify-content: center;
+  }
+
+  .featured-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .carousel-track {
+    padding: 24px calc(50% - 110px);
+    gap: 28px;
+  }
+
+  .carousel-card {
+    width: 220px;
+  }
+
+  .carousel-arrow {
+    width: 36px;
+    height: 36px;
+    font-size: 1.2rem;
+  }
+
+  .work-panel {
+    padding: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-text .quote {
+    font-size: 2.2rem;
+  }
+
+  .hero-photo {
+    height: min(40vh, 320px);
+    width: auto;
+  }
+
+  .carousel-track {
+    padding: 20px calc(50% - 90px);
+    gap: 20px;
+  }
+
+  .carousel-card {
+    width: 180px;
+  }
+
+  .work-panel-photo-nav {
+    width: 30px;
+    height: 30px;
+    font-size: 1.1rem;
+  }
+
+  .carousel-arrow {
+    width: 32px;
+    height: 32px;
+    font-size: 1.1rem;
+  }
+
+  .work-panel-actions {
+    gap: 8px;
+  }
+
+  .work-panel-action-btn {
+    padding: 7px 16px;
+    font-size: 0.8rem;
+  }
+}

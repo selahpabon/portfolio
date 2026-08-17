@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WashU Care Navigation App | Selah Pabon</title>
+  <link rel="stylesheet" href="https://use.typekit.net/hvx6tag.css">
+  <link rel="stylesheet" href="../style.css?v=9">
+  <link rel="stylesheet" href="case-study.css">
+</head>
+<body>
+
+  <div class="eye-border">
+    <img src="../assets/allbrowneyepattern.svg" alt="">
+  </div>
+
+  <main class="page cs-page">
+    <a class="cs-back-link" href="../work.html">&larr; Back to Work</a>
+
+    <!-- 1. Hero -->
+    <header class="cs-hero">
+      <h1 class="cs-hero-title">WashU Care Navigation App</h1>
+      <p class="cs-hero-summary">A tool that helps care navigators find accurate, up-to-date clinical and social services across Missouri, built to work well on both desktop and mobile screens.</p>
+      <dl class="cs-hero-meta">
+        <div class="cs-hero-meta-item">
+          <dt>Role</dt>
+          <dd>UX Designer</dd>
+        </div>
+        <div class="cs-hero-meta-item">
+          <dt>Tools</dt>
+          <dd>Figma, Next.js, React, Tailwind CSS, Leaflet</dd>
+        </div>
+        <div class="cs-hero-meta-item">
+          <dt>Timeline</dt>
+          <dd>Summer 2026 (WashU DI2 Accelerator, in partnership with Missouri DHSS)</dd>
+        </div>
+      </dl>
+    </header>
+
+    <!-- 2. Hook -->
+    <section class="cs-section cs-hook" aria-labelledby="hook-heading">
+      <h2 id="hook-heading" class="cs-section-heading">The Short Version</h2>
+      <p class="cs-hook-text">Care navigators, community health workers, doulas, home visitors, and other frontline staff, spend real time every week just confirming basic facts: whether a clinic takes a client's insurance, whether a listed service still exists, whether a phone number still works. Existing directories are often outdated, incomplete, or split across clinical and social services. Navigators end up relying on personal knowledge, screenshotted flyers from conferences, and word of mouth to fill the gaps. This project set out to build one tool that keeps up with them.</p>
+    </section>
+
+    <!-- 3. Context / Problem -->
+    <section class="cs-section" aria-labelledby="context-heading">
+      <h2 id="context-heading" class="cs-section-heading">Context &amp; Problem</h2>
+      <p>Community health workers, doulas, home visitors, and similar boundary-spanning providers connect people across Missouri to both clinical and non-clinical services, but no single tool serves both well. Existing options like FindHelp, Unite Us, and 211 each help to a point: some are built for providers, not clients; some go stale quickly; and none let navigators filter by managed care plan, which co-design participants named as the single biggest time sink in their current workflow.</p>
+      <p>This project is the foundation phase of an ongoing initiative to build that tool. This phase covered three co-design sessions with care navigators, synthesis of what we learned into personas and requirements, and an early proof-of-concept build aligned to Missouri DHSS's visual style. A full scope-definition meeting, broader design work, and beta testing with navigators are planned for later phases.</p>
+
+      <div class="cs-disclosure">
+        <p>The facility/tool data shown is placeholder, pending integration with real data sources; this project does not use and will never involve patient level data.</p>
+      </div>
+    </section>
+
+    <!-- 4. Process -->
+    <section class="cs-section" aria-labelledby="process-heading">
+      <h2 id="process-heading" class="cs-section-heading">Process</h2>
+      <p>We ran three virtual co-design sessions with care navigators, doulas, and program managers, then synthesized what we learned into a set of twelve user personas covering care navigators, rural navigators working with spotty signal and printed handouts, clients with no independent access to the tool, an agency staff member, and a policy researcher. Building out that range early kept later design decisions grounded in real, sometimes conflicting, constraints instead of a single &ldquo;typical user.&rdquo; Two decisions came directly out of that research and shaped the proof of concept:</p>
+
+      <div class="cs-decision">
+        <h3 class="cs-decision-heading">Build for navigators first, then clients, then researchers</h3>
+        <p>Co-design participants and the project team agreed the first iteration should serve community health workers and similar navigators, with a client-facing version and a research/analytics view following once the core tool was working.</p>
+        <figure class="cs-figure">
+          <span class="cs-figure-thumb">
+            <img src="../assets/dhss/process-persona-table.png" alt="Full persona table listing twelve personas by name, role, geography, user type, primary device, and primary pain point">
+          </span>
+          <figcaption class="cs-figure-caption">Synthesis from the co-design sessions produced twelve personas spanning care navigators, rural navigators, clients, agency staff, and a policy researcher, used to keep the first iteration scoped to navigators without losing sight of who the tool needed to serve next.</figcaption>
+        </figure>
+      </div>
+
+      <div class="cs-decision">
+        <h3 class="cs-decision-heading">Treat managed care plan filtering as a core feature, not an add-on</h3>
+        <p>One navigator, Grace, described searching for a provider that accepted a client's managed care plan as the single most time-consuming part of her job: calling ahead to confirm coverage before ever handing a client a referral. That was specific enough to move plan filtering from a nice-to-have into a primary requirement.</p>
+        <figure class="cs-figure">
+          <span class="cs-figure-thumb">
+            <img src="../assets/dhss/process-persona-cards.png" alt="Persona cards for Grace, Darlene, Maria, Earl, and Nadia, each showing reasons for using the tool, context of use, current workflow, and feelings about current tools">
+          </span>
+          <figcaption class="cs-figure-caption">Grace's persona card, first of the set: &ldquo;Knowing which plans a provider actually takes before I pick up the phone would save me half my day&rdquo; was specific enough on its own to make managed care plan filtering a core requirement.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 5. Final Solution -->
+    <section class="cs-section" aria-labelledby="solution-heading">
+      <h2 id="solution-heading" class="cs-section-heading">Final Solution</h2>
+      <p>The proof of concept lets someone start from one of two entry points: looking for care for themselves or a family member, or helping a client as a navigator. From there, a short onboarding step collects only the basics needed to personalize results: the person's location or zip code, their name, their preferred language, and how far they're willing to travel. Choosing a specific type of care happens afterward, on the dashboard itself, rather than as part of onboarding.</p>
+
+      <figure class="cs-figure">
+        <span class="cs-figure-thumb">
+          <img src="../assets/dhss/final-onboarding-entry-points.png" alt="Entry point screen asking whether the person is seeking care for themself, friends, or family, or for a client or patient">
+        </span>
+        <figcaption class="cs-figure-caption">The proof of concept opens with two entry points, seeking care for yourself or family, or helping a client as a navigator, before a short onboarding step collects location, name, preferred language, and travel distance.</figcaption>
+      </figure>
+
+      <p>Accessibility is treated as a core part of the experience, not an afterthought, given how wide a range of users this tool needs to serve, from tech-comfortable navigators to seniors and people with disabilities. Both onboarding and Advanced Search include an information icon that expands into a longer panel explaining how to navigate the site using only a keyboard, so people who rely on assistive technology aren't left to figure it out on their own.</p>
+
+      <figure class="cs-figure">
+        <span class="cs-figure-thumb">
+          <img src="../assets/dhss/final-onboarding-keyboard-nav-help.png" alt="Onboarding form with an information icon expanded into a keyboard navigation help panel">
+        </span>
+        <figcaption class="cs-figure-caption">Onboarding and Advanced Search both include an information icon that expands into a keyboard-navigation help panel, so people relying on assistive technology aren't left to figure the site out on their own.</figcaption>
+      </figure>
+
+      <p>The dashboard groups results by category and lets people search by keyword or apply quick filters for insurance, accessibility needs, and distance. Each result shows the details a navigator would otherwise have to call and confirm: hours, what to bring, whether the provider is accepting new patients, and when the listing was last verified. A companion Care Map view plots the same results geographically, with color-coded, numbered markers by category, an adjustable search radius, and filters for insurance, availability, preferred transportation, accessibility needs, and communication preferences.</p>
+
+      <figure class="cs-figure">
+        <span class="cs-figure-thumb">
+          <img src="../assets/dhss/final-dashboard-category-browser.png" alt="Dashboard showing category browser cards, a keyword search bar, and quick filters for insurance, accessibility needs, and distance">
+        </span>
+        <figcaption class="cs-figure-caption">The dashboard groups results by category with quick filters for insurance, accessibility needs, and distance; each result shows hours, requirements, new-patient status, and when it was last verified, the details a navigator would otherwise have to call and confirm.</figcaption>
+      </figure>
+
+      <figure class="cs-figure">
+        <span class="cs-figure-thumb">
+          <img src="../assets/dhss/final-care-map.png" alt="Care Map view showing color-coded numbered markers across the St. Louis region with a filters panel and a recommended-by-distance results list">
+        </span>
+        <figcaption class="cs-figure-caption">The companion Care Map view plots the same results geographically with color-coded, numbered markers by category, an adjustable search radius, and filters for insurance, availability, transportation, accessibility needs, and communication preferences.</figcaption>
+      </figure>
+
+      <p>An Advanced Search page goes a level deeper on filtering. Users can narrow results by care category (such as Everyday &amp; Primary Care, Dental, Vision &amp; Hearing, Mental &amp; Behavioral Health, Specialist &amp; Rehab Care, Home, Aging &amp; Disability Support, Women's &amp; Children's Health, Social/Basic Needs, and Family, Youth &amp; Community), by specific accessibility needs, by insurance and managed care plan type, and by preferred mode of transportation, rather than being limited to the broader categories shown on the dashboard.</p>
+
+      <figure class="cs-figure">
+        <span class="cs-figure-thumb">
+          <img src="../assets/dhss/final-advanced-search.png" alt="Advanced Search page with an expanded care category accordion listing specific service types under Everyday and Primary Care">
+        </span>
+        <figcaption class="cs-figure-caption">Advanced Search goes a level deeper than the dashboard's broader categories, letting users narrow by specific care category, accessibility needs, insurance and managed care plan type, and preferred mode of transportation.</figcaption>
+      </figure>
+
+      <div class="cs-disclosure">
+        <p>The facilities and listings shown in the current screenshots and demos are placeholder data and do not yet cover the full geographic area the finished tool is meant to span. That's why some categories or regions may appear empty right now. This is a gap in the current data set, not a gap in the tool's design.</p>
+      </div>
+
+      <p>The tool also builds in the trust signals and insider knowledge that came directly out of co-design: a Community Forum where people can post tips or questions tied to a specific facility, upvote helpful posts, and see a facility's frequently asked questions answered and labeled as &ldquo;Verified by navigator&rdquo; or left &ldquo;Unverified&rdquo; until someone confirms it. This is the practical, unofficial knowledge, like the best time of day to call a given office, that experienced navigators already rely on but that never makes it into an official directory. A &ldquo;My Care&rdquo; area lets people save facilities they use often and attach private notes for their own reference.</p>
+
+      <figure class="cs-figure">
+        <span class="cs-figure-thumb">
+          <img src="../assets/dhss/final-community-forum.png" alt="Community Forum showing posts tied to a specific facility with upvotes, alongside a Facility FAQs panel labeled Verified by navigator or Unverified">
+        </span>
+        <figcaption class="cs-figure-caption">A Community Forum lets people post tips or questions tied to a specific facility and upvote helpful posts; facility FAQs are labeled &ldquo;Verified by navigator&rdquo; or left &ldquo;Unverified&rdquo; until someone confirms them.</figcaption>
+      </figure>
+
+      <p>The &ldquo;My Care&rdquo; section also accounts for clients who may be using a public library computer or a borrowed device rather than their own. Since this kind of access isn't guaranteed to be available again later, saved facilities and notes in &ldquo;My Care&rdquo; can be downloaded as a PDF and printed, so a client with limited digital access or comfort still walks away with a physical copy of the care options and facilities they found.</p>
+
+      <figure class="cs-figure">
+        <span class="cs-figure-thumb">
+          <img src="../assets/dhss/final-my-care.png" alt="My Care page showing saved facilities including Barnes Jewish Hospital and On Up, a private note on Barnes Jewish Hospital, and a Save as PDF button">
+        </span>
+        <figcaption class="cs-figure-caption">&ldquo;My Care&rdquo; lets people save facilities and attach private notes, then download the list as a PDF, so a client using a borrowed device or library computer still walks away with a physical copy.</figcaption>
+      </figure>
+
+      <p>All content, from category labels to form questions to facility details, is written in plain language, targeting roughly a 5th-grade reading level, since the tool serves people across a wide range of reading levels and digital comfort, including rural and senior clients. This is treated as a structural requirement, not a style preference.</p>
+
+      <p>Visual and content style are aligned with Missouri DHSS's public-facing brand, using DHSS's verified navy as the primary color, a plain and highly legible sans-serif typeface, and a restrained, institutional palette, so the tool feels credible and consistent with the agency that will ultimately host it.</p>
+
+      <p>Right now, the navigator experience and the client experience are nearly identical: both use the same dashboard, filters, and facility detail pages, and differ mainly in wording rather than in what's shown or how it works. Designing more meaningful differences between the two, for example giving navigators tools a client wouldn't need, is expected work for the next phase.</p>
+
+      <p>A review of the proof of concept identified a set of specific refinements for that next phase. On the dashboard, selecting a care category is meant to filter the results in place rather than open a new page, and categories are meant to be color-coded consistently across the dashboard, filters, and map, so a selected filter and its icons share one color and facilities with the most matching categories surface first. Facilities that fall under more than one category need a clearer way to show that instead of being sorted under just one. On the map, planned additions include showing estimated travel time by different transportation methods and highlighting public transit routes. Other identified refinements include letting users include or exclude digital-only resources from results, adding a dedicated prompt for anyone in a mental health crisis, showing a running count of nearby facilities and digital resources at the top of the dashboard, adding a forum thread to every facility's detail page, and adding a simple way to confirm whether a piece of facility information worked for a user, similar to how Couponfinder.com verifies its listings.</p>
+
+      <div class="cs-video-wrap cs-video-final">
+        <p class="cs-video-label">Full walkthrough: sped up 2&times;</p>
+        <video class="cs-video" poster="../assets/dhss/final-full-walkthrough-poster.png" controls preload="none" aria-label="Sped-up walkthrough of the full proof of concept, from onboarding through the dashboard, Care Map, Advanced Search, Community Forum, and My Care">
+          <source src="../assets/dhss/final-full-walkthrough.mp4" type="video/mp4">
+          Your browser does not support embedded video.
+        </video>
+        <p class="cs-video-note">End-to-end walkthrough: onboarding, dashboard, Care Map, Advanced Search, Community Forum, and My Care</p>
+      </div>
+    </section>
+
+    <!-- 6. Outcome -->
+    <section class="cs-section" aria-labelledby="outcome-heading">
+      <h2 id="outcome-heading" class="cs-section-heading">Outcome</h2>
+      <p>This phase produced session notes from all three co-design sessions, a set of twelve user personas, synthesized requirements, and a proof-of-concept build that reflects those requirements and DHSS's visual identity. That proof of concept is now ready to support a scope-definition meeting to define the next phase of design work, including a full prototype and eventual developer handoff.</p>
+      <p>The project's longer-term success measures, a beta test with 40 navigators over four weeks, and evidence that the tool is trusted enough that navigators stop defaulting back to Google, are goals for a future phase and have not been tested yet.</p>
+      <p>The design work on this project is being handed off to another designer to carry forward. The designer role on this project is a WashU work-study position held by a current student, and since I have now graduated, a new designer will take over for the next phase. The session notes, personas, requirements, this proof of concept, and the refinements identified in review are meant to give that next designer a running start rather than a blank page.</p>
+    </section>
+
+    <!-- 7. Reflection -->
+    <section class="cs-section cs-reflection" aria-labelledby="reflection-heading">
+      <h2 id="reflection-heading" class="cs-section-heading">Reflection</h2>
+      <p>This was my first time working with a government agency as a project partner, and my first time designing based on direct feedback from users outside the WashU community. Sitting in on the co-design sessions and hearing directly from care navigators about what mattered most to them was some of the UX research I've enjoyed most so far. Turning those notes into a full set of personas was a useful exercise too. It made clear just how wide the range of people this tool needs to serve really is.</p>
+      <p>I pulled interface inspiration from a lot of different places because I wanted this tool to feel clear and easy to use without feeling stale, ugly, or overly institutional, which is how a lot of government tools end up feeling. I wanted it to feel welcoming and simple to navigate without being overwhelming. Keeping the process human-focused, with real feedback shaping each iteration, was the part of this project I found most rewarding.</p>
+      <p>The hardest part was balancing the needs of such a wide range of users. There was no single decision that would satisfy everyone, so I had to get comfortable prioritizing the most important concerns for each group while accepting that not every choice would land the same way for every user.</p>
+      <p>There's still a lot of work left before this tool is ready to go out into the world, but I'm handing it off with confidence that the next designer will be able to pick up my notes and continue building from where I left off.</p>
+    </section>
+  </main>
+
+  <nav class="site-nav">
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../work.html" class="active">Work</a></li>
+      <li><a href="../resume.html">Resume</a></li>
+    </ul>
+  </nav>
+
+  <footer class="site-footer">
+    &copy; 2026 Selah Pabon
+  </footer>
+
+</body>
+</html>

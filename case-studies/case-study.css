@@ -1,0 +1,351 @@
+/* ===========================================================
+   Case study pages: shared 7-section template
+   Loaded in addition to ../style.css (which supplies the
+   --brown/--bg/--font-* variables, .page, .btn, .placeholder-tag,
+   .site-nav, .site-footer, .eye-border, etc.)
+   =========================================================== */
+
+.cs-page {
+  padding-top: 40px;
+}
+
+.cs-back-link {
+  display: inline-block;
+  margin-bottom: 32px;
+  font-size: 0.85rem;
+  color: var(--brown-soft);
+  transition: color 0.2s ease;
+}
+
+.cs-back-link:hover {
+  color: var(--brown);
+  text-decoration: underline;
+}
+
+/* Bracketed placeholder copy: anything Selah needs to write herself
+   (facts, decisions/rationale, findings, captions, reflection prompts)
+   gets this treatment so it visually reads as "fill me in", distinct
+   from the on-tone placeholder prose written for connective copy. */
+.cs-placeholder-text {
+  font-style: italic;
+  color: var(--brown-soft);
+  border-left: 2px solid var(--brown-faint);
+  padding-left: 14px;
+}
+
+/* ---------- 1. Hero ---------- */
+
+.cs-hero {
+  margin-bottom: 56px;
+}
+
+/* `.cs-page` is prefixed on the selectors below purely to out-specificity
+   style.css's generic `.page h1` / `.page p` rules (same element, lower
+   specificity would otherwise silently lose the font-size/margin here). */
+
+.cs-page .cs-hero-title {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 2.6rem;
+  margin: 0 0 12px;
+}
+
+.cs-page .cs-hero-summary {
+  font-size: 1.15rem;
+  color: var(--brown-soft);
+  margin: 0 0 28px;
+}
+
+.cs-hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  margin: 0;
+  padding: 20px 0 0;
+  border-top: 1px solid var(--brown-faint);
+}
+
+.cs-hero-meta-item {
+  min-width: 140px;
+}
+
+.cs-hero-meta-item dt {
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--brown-soft);
+  margin: 0 0 4px;
+}
+
+.cs-hero-meta-item dd {
+  margin: 0;
+  font-size: 0.98rem;
+}
+
+/* ---------- Shared section rhythm ---------- */
+
+.cs-section {
+  margin-bottom: 64px;
+}
+
+/* `.page p` (style.css) caps paragraph width at 780px for the prose
+   pages (about/work/resume); case-study copy should run the full
+   width of the page like everything else here, so neutralize it with
+   the same specificity-beating prefix used above. */
+.cs-page p {
+  max-width: none;
+}
+
+.cs-section-heading {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 1.4rem;
+  margin: 0 0 20px;
+}
+
+/* ---------- 2. Hook ---------- */
+
+.cs-page .cs-hook-text {
+  font-size: 1.15rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ---------- 3. Context / Problem ---------- */
+
+.cs-disclosure {
+  margin-top: 24px;
+  padding: 20px 24px;
+  border: 1.5px dashed var(--brown-faint);
+  border-radius: 12px;
+  background: rgba(65, 25, 0, 0.03);
+}
+
+.cs-disclosure p {
+  margin: 0 0 12px;
+  font-size: 0.95rem;
+  color: var(--brown-soft);
+}
+
+.cs-disclosure p:last-child {
+  margin-bottom: 0;
+}
+
+/* ---------- Decisions (Process section) ---------- */
+
+.cs-decision {
+  margin-bottom: 40px;
+}
+
+.cs-decision:last-child {
+  margin-bottom: 0;
+}
+
+.cs-decision-heading {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1.05rem;
+  margin: 0 0 10px;
+}
+
+.cs-decision p {
+  margin: 0 0 16px;
+}
+
+/* ---------- Annotated screenshot figures (real <img>, per spec) ---------- */
+
+/* Capped narrower than the (now full-width) page column: a run of
+   full-bleed dashboard screenshots reads as overwhelming, so keep
+   each one at a contained, readable size instead of stretching edge
+   to edge. */
+.cs-figure {
+  max-width: 640px;
+  margin: 0 auto 16px;
+}
+
+/* Portrait phone screenshots (e.g. Instagram Feed's mobile mockups) are much
+   taller than wide, so the shared 640px figure width would render them
+   enormous. Cap them narrower instead, closer in on-page height to the
+   landscape dashboard screenshots elsewhere. */
+.cs-figure-portrait {
+  max-width: 300px;
+}
+
+/* Research artifacts (persona cards) are landscape but text-dense —
+   give them a bit more room than the default 640px so the copy on
+   them stays legible instead of shrinking further. */
+.cs-figure-wide {
+  max-width: 760px;
+}
+
+/* Journey maps are dense multi-column tables; they need close to the
+   full content width to stay legible at all. */
+.cs-figure-full {
+  max-width: 100%;
+}
+
+.cs-figure-thumb {
+  position: relative;
+  display: block;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1.5px solid var(--brown-faint);
+}
+
+.cs-figure-thumb img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.cs-figure-caption {
+  margin: 10px 0 0;
+  font-size: 0.88rem;
+}
+
+/* ---------- Video placeholders ----------
+   Two visually distinct treatments so it's obvious which type of clip
+   goes where: dashed/lighter for the sped-up process montage, solid/
+   heavier for the clean final walkthrough. */
+
+.cs-video-wrap {
+  margin: 0 0 16px;
+}
+
+.cs-video {
+  width: 100%;
+  display: block;
+  border-radius: 12px;
+  background: var(--bg);
+}
+
+.cs-video-process .cs-video {
+  border: 1.5px dashed var(--brown-faint);
+}
+
+.cs-video-final .cs-video {
+  border: 2px solid var(--brown);
+}
+
+.cs-page .cs-video-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 10px 0 0;
+  font-size: 0.8rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--brown-soft);
+}
+
+.cs-video-process .cs-video-label::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--brown-faint);
+}
+
+.cs-video-final .cs-video-label::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--brown);
+}
+
+.cs-page .cs-video-note {
+  margin: 6px 0 0;
+  font-size: 0.85rem;
+}
+
+/* Multiple clips sharing one video treatment (e.g. several short final
+   walkthroughs instead of one combined montage) lay out side by side. */
+.cs-video-group {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+  margin-top: 12px;
+}
+
+.cs-video-group .cs-video-note {
+  text-align: center;
+}
+
+/* Portrait phone walkthroughs (e.g. Instagram Feed's click-through demos):
+   same reasoning as .cs-figure-portrait above, capped and centered so two
+   side-by-side portrait clips don't blow up the page's vertical rhythm. */
+.cs-video-group-portrait {
+  max-width: 620px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 3rd clip (of 3) centers on its own row at the same size as the
+   first two, instead of stretching to fill the full row width. */
+.cs-video-group > div:nth-child(3) {
+  grid-column: 1 / -1;
+  max-width: calc(50% - 14px);
+  margin: 0 auto;
+}
+
+@media (max-width: 800px) {
+  .cs-video-group {
+    grid-template-columns: 1fr;
+  }
+
+  .cs-video-group > div:nth-child(3) {
+    max-width: none;
+    margin: 0;
+  }
+
+  .cs-video-group-portrait {
+    max-width: 300px;
+  }
+}
+
+/* ---------- Research/insight placeholder cards (Instagram Process) ---------- */
+
+.cs-insight-card {
+  padding: 20px 24px;
+  border: 1.5px solid var(--brown-faint);
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.cs-insight-card:last-child {
+  margin-bottom: 0;
+}
+
+.cs-insight-heading {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.98rem;
+  margin: 0 0 8px;
+}
+
+/* ---------- Outcome / Reflection ---------- */
+
+.cs-reflection p {
+  margin: 0 0 16px;
+}
+
+.cs-reflection p:last-child {
+  margin-bottom: 0;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 800px) {
+  .cs-page .cs-hero-title {
+    font-size: 2.1rem;
+  }
+
+  .cs-hero-meta {
+    gap: 20px;
+  }
+
+  .cs-section {
+    margin-bottom: 48px;
+  }
+}

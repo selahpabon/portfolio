@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Disparities | Selah Pabon</title>
+  <link rel="stylesheet" href="https://use.typekit.net/hvx6tag.css">
+  <link rel="stylesheet" href="../style.css?v=9">
+  <link rel="stylesheet" href="case-study.css">
+</head>
+<body>
+
+  <div class="eye-border">
+    <img src="../assets/allbrowneyepattern.svg" alt="">
+  </div>
+
+  <main class="page cs-page">
+    <a class="cs-back-link" href="../work.html">&larr; Back to Work</a>
+
+    <!-- 1. Hero -->
+    <header class="cs-hero">
+      <h1 class="cs-hero-title">Digital Disparities</h1>
+      <p class="cs-hero-summary">Digital Disparities &amp; Psychiatric/Substance Use Care (DDPSA): a data visualization project exploring whether neighborhood-level digital access gaps affect who receives treatment for opioid and stimulant use disorder in St. Louis, built as a 10-week health informatics research collaboration with Washington University School of Medicine and BJC HealthCare, working alongside Principal Investigators Dr. Hannah Szlyk and Dr. Linying Zhang.</p>
+      <dl class="cs-hero-meta">
+        <div class="cs-hero-meta-item">
+          <dt>Role</dt>
+          <dd>Data Visualization Designer</dd>
+        </div>
+        <div class="cs-hero-meta-item">
+          <dt>Tools</dt>
+          <dd>Figma, R Shiny, Leaflet</dd>
+        </div>
+        <div class="cs-hero-meta-item">
+          <dt>Timeline</dt>
+          <dd>10-week health informatics research collaboration (WashU School of Medicine &amp; BJC HealthCare)</dd>
+        </div>
+      </dl>
+    </header>
+
+    <!-- 2. Hook -->
+    <section class="cs-section cs-hook" aria-labelledby="hook-heading">
+      <h2 id="hook-heading" class="cs-section-heading">The Short Version</h2>
+      <p class="cs-hook-text">In St. Louis, the neighborhoods hit hardest by opioid and stimulant overdoses tend to be the same neighborhoods with the worst access to broadband internet and digital tools. Cross Delmar Boulevard, the city's well-documented racial and economic dividing line, and life expectancy drops by a decade. Two Washington University researchers noticed this overlap informally, well before any data existed to confirm or explain it. This project set out to test whether that overlap is real, and whether it helps explain who receives treatment for substance use disorders and who does not.</p>
+    </section>
+
+    <!-- 3. Context / Problem -->
+    <section class="cs-section" aria-labelledby="context-heading">
+      <h2 id="context-heading" class="cs-section-heading">Context &amp; Problem</h2>
+      <p>St. Louis's digital divide has deep roots. In 1935, the Home Owners' Loan Corporation graded city neighborhoods for mortgage lending, marking many Black neighborhoods as &ldquo;hazardous.&rdquo; Nearly a century later, the neighborhoods that score lowest on today's Digital Divide Index, a Purdue University measure of broadband access, device ownership, and digital literacy, overlap closely with those same boundaries, and the gap is stark: St. Louis City's Digital Divide Index score is 16.7, 72% higher than St. Louis County's 9.7.</p>
+      <p>The stakes are high. Opioid-related deaths among Black St. Louisans have risen roughly 500% since 2015, and Black patients are 77% less likely than white patients to receive medication for opioid use disorder, even after accounting for insurance coverage. When the federal Affordable Connectivity Program ended in May 2024, more than 394,000 Missouri households lost a $30 monthly broadband subsidy, and many reported dropping telehealth appointments as a result.</p>
+      <p>This project links two datasets to study whether these patterns are connected: electronic health records from BJC HealthCare for patients diagnosed with opioid or stimulant use disorder between 2000 and 2024, and Digital Divide Index scores at the census tract level across St. Louis City and County.</p>
+
+      <div class="cs-disclosure">
+        <p>This visualization displays real patient data with small-cell suppression applied &mdash; figures representing fewer than 10 patients are not shown, per standard data privacy practice.</p>
+        <p>This is Phase 1 of an ongoing initiative, focused on building the underlying data infrastructure and a public-facing visualization tool; it lays the foundation for a future federal grant application and a deeper analysis of how digital access shapes psychiatric and substance use care.</p>
+      </div>
+    </section>
+
+    <!-- 4. Process (light: 1-2 decisions, image-annotation placeholders only) -->
+    <section class="cs-section" aria-labelledby="process-heading">
+      <h2 id="process-heading" class="cs-section-heading">Process</h2>
+      <p>Two decisions shaped the rest of the design, before a single screen of the actual interface was built:</p>
+
+      <div class="cs-decision">
+        <h3 class="cs-decision-heading">Learning from existing public health dashboards</h3>
+        <p>Rather than designing the tool's interface from scratch, I studied two existing public health dashboards in detail: California's Healthy Places Index and ThinkHealthSTL's local Digital Divide Index dashboard. I adapted patterns that worked well, like a plain-language sentence comparing a neighborhood to the rest of the region, and deliberately avoided others that conflicted with this project's constraints.</p>
+        <figure class="cs-figure">
+          <span class="cs-figure-thumb">
+            <img src="../assets/digital-disparities/process-reference-healthy-places-index.png" alt="Reference screenshots of California's Healthy Places Index dashboard, showing tract-level community-conditions scores, percentile rankings, and race/ethnicity diversity index panels">
+          </span>
+          <figcaption class="cs-figure-caption">California's Healthy Places Index: a precedent for tract-level percentile scoring and race/ethnicity breakdowns, though its interface skews toward policy researchers over a general public audience.</figcaption>
+        </figure>
+        <figure class="cs-figure">
+          <span class="cs-figure-thumb">
+            <img src="../assets/digital-disparities/process-reference-thinkhealthstl.png" alt="Reference screenshots of ThinkHealthSTL's Digital Divide Index dashboard, showing the DDI score, a plain-language explanation, a changes-over-time chart, and a location map">
+          </span>
+          <figcaption class="cs-figure-caption">ThinkHealthSTL's own Digital Divide Index dashboard: the direct local precedent, and the source of the plain-language &ldquo;higher/lower than&rdquo; comparison sentence carried into this tool's tract detail panel.</figcaption>
+        </figure>
+      </div>
+
+      <div class="cs-decision">
+        <h3 class="cs-decision-heading">A hard color constraint, with one deliberate exception</h3>
+        <p>One constraint shaped how I built every present-day data layer: red, orange, and yellow are excluded from any map or chart encoding current data, using a blue and teal scale instead. The one deliberate exception is the historical HOLC overlay, which keeps the original 1930s federal grading colors, including red for the lowest grade, because restyling a historical document felt like softening it, though a colorblind-safe alternate version of those same historical colors is available with one click.</p>
+      </div>
+    </section>
+
+    <!-- 5. Final Solution (full weight) -->
+    <section class="cs-section" aria-labelledby="solution-heading">
+      <h2 id="solution-heading" class="cs-section-heading">Final Solution</h2>
+      <p>The tool has two parts: a public landing page that introduces the project in plain language, and the interactive map and research page it links to, built with R Shiny and Leaflet.</p>
+
+      <figure class="cs-figure">
+        <span class="cs-figure-thumb">
+          <img src="../assets/digital-disparities/final-interactive-map-total-ddi.png" alt="Interactive map of St. Louis City and County census tracts shaded by Total Digital Divide Index score, with map-layer toggles for infrastructure, socioeconomic status, OUD patient count, and a 1930s HOLC redlining overlay">
+        </span>
+        <figcaption class="cs-figure-caption">The map lets anyone explore Digital Divide Index scores by tract, along with the two components behind that score (Infrastructure/Adoption and Socioeconomic status), plus a toggleable historical HOLC redlining overlay that keeps the original 1930s grading colors.</figcaption>
+      </figure>
+
+      <p>Clicking into a tract opens a detail panel with a plain-language read of the numbers: a sentence stating how many St. Louis tracts have higher digital barriers than the one selected, a comparison against city and county averages, an expandable breakdown of the underlying subscores, and demographic context from the census.</p>
+
+      <figure class="cs-figure">
+        <span class="cs-figure-thumb">
+          <img src="../assets/digital-disparities/final-tract-detail-panel.png" alt="Tract detail panel showing a 1930s HOLC Grade C label, a distribution bar comparing the tract to the city and county average, and Total DDI, Infrastructure, and Socioeconomic subscores">
+        </span>
+        <figcaption class="cs-figure-caption">The detail panel for a selected tract: a plain-language sentence (&ldquo;higher digital barriers than 94% of St. Louis tracts&rdquo;), its HOLC grade where applicable, and an expandable subscore breakdown.</figcaption>
+      </figure>
+
+      <p>Where digital access data connects to health outcomes, the tool draws on real, de-identified electronic health records from BJC HealthCare, linked to census tracts. For each tract, it shows the number of patients treated for opioid use disorder, broken down by age, race, ethnicity, insurance, and gender, along with the share who received psychiatric care and the share who received medication for opioid use disorder. Any tract, or any demographic breakdown within a tract, with fewer than 10 patients is suppressed rather than shown, and the tool distinguishes &ldquo;suppressed for privacy&rdquo; from &ldquo;no linked health record data for this tract,&rdquo; rather than showing both the same way. The pipeline that builds this data also keeps a synthetic testing dataset physically separate from the real, patient-linked file, so the two can never be mixed up by accident.</p>
+
+      <p>Alongside the map, a companion research page mirrors the same tract-level data in a sortable, filterable table, with distribution charts and a data dictionary for anyone who wants to look at the numbers more closely than the map allows.</p>
+
+      <p>The tool also includes accessibility features: a colorblind-safe alternate color scheme for the historical overlay, adjustable text size, a reduced-motion mode, and a high-contrast text option, all of which save automatically and persist across visits. No photography, clip art, or illustrated metaphors appear anywhere in the tool, a deliberate choice given the subject matter's history with surveillance and stigmatization.</p>
+
+      <div class="cs-video-wrap cs-video-final">
+        <p class="cs-video-label">Final walkthrough: sped up 2&times;</p>
+        <div class="cs-video-group">
+          <div>
+            <video class="cs-video" poster="../assets/digital-disparities/final-walkthrough-map-tract-detail-poster.png" controls preload="none" aria-label="Sped-up walkthrough of the interactive map, its layers, and the tract detail panel">
+              <source src="../assets/digital-disparities/final-walkthrough-map-tract-detail.mp4" type="video/mp4">
+              Your browser does not support embedded video.
+            </video>
+            <p class="cs-video-note">Map layers &amp; tract detail</p>
+          </div>
+          <div>
+            <video class="cs-video" poster="../assets/digital-disparities/final-walkthrough-research-data-table-poster.png" controls preload="none" aria-label="Sped-up walkthrough of the research page's data table and charts">
+              <source src="../assets/digital-disparities/final-walkthrough-research-data-table.mp4" type="video/mp4">
+              Your browser does not support embedded video.
+            </video>
+            <p class="cs-video-note">Research data table &amp; charts</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Outcome -->
+    <section class="cs-section" aria-labelledby="outcome-heading">
+      <h2 id="outcome-heading" class="cs-section-heading">Outcome</h2>
+      <p>As of this writing, the interactive tool is functioning with real, linked data: electronic health records from BJC HealthCare are connected to 221 of the 340 census tracts in the study area, showing, per tract, the number of patients treated for opioid use disorder along with the share who received psychiatric care or medication for opioid use disorder. Small-cell suppression is active throughout, applied independently at both the tract level and the demographic-breakdown level. Alongside this, the project has secured IRB approval and confirmed the tool will be public-facing, though two outcome measures planned for a future phase, telehealth use and overdose mortality, are not yet linked.</p>
+    </section>
+
+    <!-- 7. Reflection -->
+    <section class="cs-section cs-reflection" aria-labelledby="reflection-heading">
+      <h2 id="reflection-heading" class="cs-section-heading">Reflection</h2>
+      <p>Working within this project's color constraint, no red, orange, or yellow anywhere, meant rethinking default chart conventions for nearly every visualization, and it shaped how I approached the rest of the design system. This was also my first time working with real patient data and going through the IRB approval process, which taught me a lot about protecting patient privacy and about designing a tool that communicates the information people need while still prioritizing the health and safety of the patients in the study.</p>
+      <p>I learned a lot about the history of St. Louis through this project too. Including the 1930s redlining grades was my idea, not something the PIs suggested, and it pushed the team to think more directly about race and the effects of systemic racism on the study and its outcomes. One thing I loved about this project was working with an all-female team, which felt empowering in itself, and I enjoyed being able to design and communicate the work of the talented software developers on my team.</p>
+    </section>
+  </main>
+
+  <nav class="site-nav">
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../work.html" class="active">Work</a></li>
+      <li><a href="../resume.html">Resume</a></li>
+    </ul>
+  </nav>
+
+  <footer class="site-footer">
+    &copy; 2026 Selah Pabon
+  </footer>
+
+</body>
+</html>

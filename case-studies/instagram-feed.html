@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Instagram Feed Feature | Selah Pabon</title>
+  <link rel="stylesheet" href="https://use.typekit.net/hvx6tag.css">
+  <link rel="stylesheet" href="../style.css?v=9">
+  <link rel="stylesheet" href="case-study.css">
+</head>
+<body>
+
+  <div class="eye-border">
+    <img src="../assets/allbrowneyepattern.svg" alt="">
+  </div>
+
+  <main class="page cs-page">
+    <a class="cs-back-link" href="../work.html">&larr; Back to Work</a>
+
+    <!-- 1. Hero -->
+    <header class="cs-hero">
+      <h1 class="cs-hero-title">Instagram Feed Feature</h1>
+      <p class="cs-hero-summary">Instagram Feed Customization: a UX research project exploring whether giving people more control over their social media feed can support their well-being.</p>
+      <dl class="cs-hero-meta">
+        <div class="cs-hero-meta-item">
+          <dt>Role</dt>
+          <dd>UX Researcher &amp; Designer</dd>
+        </div>
+        <div class="cs-hero-meta-item">
+          <dt>Tools</dt>
+          <dd>Figma</dd>
+        </div>
+        <div class="cs-hero-meta-item">
+          <dt>Timeline</dt>
+          <dd>UX research course project (Washington University in St. Louis)</dd>
+        </div>
+      </dl>
+    </header>
+
+    <!-- 2. Hook -->
+    <section class="cs-section cs-hook" aria-labelledby="hook-heading">
+      <h2 id="hook-heading" class="cs-section-heading">The Short Version</h2>
+      <p class="cs-hook-text">Social media feeds promise connection, but they're built and controlled by algorithms, not by the people scrolling them. This project asks a simple question: if users had more say over what showed up in their feed, would that change how they felt about being there?</p>
+    </section>
+
+    <!-- 3. Context / Problem -->
+    <section class="cs-section" aria-labelledby="context-heading">
+      <h2 id="context-heading" class="cs-section-heading">Context &amp; Problem</h2>
+      <p>This was completed as a class assignment for a UX research course, not a client or professional engagement. No real user data or production app access was involved: the research and prototype below reflect the assignment brief, built around one research question &mdash; would more options for customizing a social media space lead to better well-being for users?</p>
+      <p>Instagram was chosen as the focus because it was the platform used most by survey respondents and interviewees, and because its feed algorithm, not the user, currently decides most of what appears on screen.</p>
+    </section>
+
+    <!-- 4. Process (research-artifact / insight cards, not screenshots) -->
+    <section class="cs-section" aria-labelledby="process-heading">
+      <h2 id="process-heading" class="cs-section-heading">Process</h2>
+      <p>Rather than annotated interface screenshots, this section pulls from the research and reasoning behind the redesign:</p>
+
+      <div class="cs-insight-card">
+        <h3 class="cs-insight-heading">What customization research says across other spaces</h3>
+        <p>Secondary research looked at how customization functions in four other spaces: luxury consumer products, mental health apps, smartphone interfaces, and physical environments. Across all four, customization was consistently linked to greater autonomy, self-authenticity, and user satisfaction, all of which support well-being. But several studies also warned that too many choices create cognitive overload and can reduce engagement. The takeaway: customization works best when it's optional, low-effort, and balanced with some degree of system-driven personalization, rather than left entirely up to the user.</p>
+      </div>
+
+      <div class="cs-insight-card">
+        <h3 class="cs-insight-heading">What the interview and survey turned up</h3>
+        <p>A one-on-one interview and a ten-person survey (mostly women, 18&ndash;22, with Instagram as their primary platform) grounded the secondary research in how people actually feel. The interview subject, Kate Allen-Study, described Instagram as a kind of digital scrapbook she puts real effort into curating, while feeling frustrated by algorithm changes that reduced her control and surfaced repetitive or unwanted content. Survey respondents didn't consider having a social media presence especially important (2.4 out of 5), but felt neutral-to-positive about their own enjoyment of it (3.5) and cared a moderate amount about accurate self-representation and profile customization (3.6 for both). The two tracked together: respondents who cared more about accurate representation also put more effort into customizing their profile, and 7 of 10 said they'd made genuine connections through social media, often citing profiles that felt like &ldquo;genuine, unfiltered whimsy&rdquo; or &ldquo;creative, funny, and unapologetically themselves.&rdquo;</p>
+
+        <figure class="cs-figure cs-figure-wide">
+          <span class="cs-figure-thumb">
+            <img src="../assets/instagram-feed/process-persona-kate-card.png" alt="Interviewee snapshot card for Kate Allen-Study, Business and Environmental Analysis student at WashU, favorite platform Instagram, feelings about the platform including loving profile curation but disliking the repetitive algorithm">
+          </span>
+          <figcaption class="cs-figure-caption">The interview subject's own snapshot: what drew her to Instagram, and what she'd change about it.</figcaption>
+        </figure>
+
+        <figure class="cs-figure cs-figure-full">
+          <span class="cs-figure-thumb">
+            <img src="../assets/instagram-feed/process-journey-map-kate.png" alt="Detailed user journey map for creating a customizable Instagram feed, walking through opening Instagram, opening the feed toggle bar, clicking create new, defining feed parameters, creating the feed, and scrolling to enjoy it, with goals, actions, thoughts, pain points, emotions, and opportunities noted at each stage">
+          </span>
+          <figcaption class="cs-figure-caption">An early journey map built around the interview subject's real context &mdash; a study break spent building a feed centered on Chicago friends &mdash; used to stress-test the create-a-feed flow step by step.</figcaption>
+        </figure>
+      </div>
+
+      <div class="cs-insight-card">
+        <h3 class="cs-insight-heading">The core tension: control vs. overload</h3>
+        <p>These findings shaped a persona, Eloise Gomez, a college student who wants Instagram to feel like her own space rather than whatever the algorithm decides to show her, and a user journey map of someone building a custom feed. Mapping that journey surfaced two competing risks: too few customization options would recreate the same lack of control users already disliked, while too many fields and decisions risked the cognitive overload the secondary research had warned about. That tension became the core design constraint: whatever got built needed to give users real control without turning feed creation into a chore.</p>
+
+        <figure class="cs-figure cs-figure-wide">
+          <span class="cs-figure-thumb">
+            <img src="../assets/instagram-feed/process-persona-eloise.png" alt="Persona card for Eloise Gomez, a 21-year-old undergrad student in St. Louis, a heavy Instagram user whose goals include staying connected to friends and reducing stress from unwanted content, with pain points around repetitive algorithmic feeds and limited control over her main feed">
+          </span>
+          <figcaption class="cs-figure-caption">Eloise Gomez: the composite persona built from the secondary research, the interview, and the survey findings above.</figcaption>
+        </figure>
+
+        <figure class="cs-figure cs-figure-full">
+          <span class="cs-figure-thumb">
+            <img src="../assets/instagram-feed/process-journey-map-eloise.png" alt="User journey map for Eloise across four stages: time for a social media break, customize feed, create and load, and scroll and reflect, with user goals, actions, thoughts and feelings, pain points, and opportunities noted for each stage">
+          </span>
+          <figcaption class="cs-figure-caption">Eloise's journey through a full custom-feed session &mdash; from noticing the feed toggle to scrolling the result &mdash; which is what pushed the create-a-feed form toward being short and mostly optional.</figcaption>
+        </figure>
+      </div>
+
+      <div class="cs-insight-card">
+        <h3 class="cs-insight-heading">Why an Instagram feature, not a new platform</h3>
+        <p>Several directions were considered, including a fully separate customizable networking platform and a collaborative post-editing tool similar to FigJam. Both were set aside in favor of a more contained idea: a feature within Instagram itself that lets users build custom feeds, kept private or shared with others, without asking them to leave the app or learn a new one.</p>
+      </div>
+    </section>
+
+    <!-- 5. Final Solution (screenshots + walkthrough videos) -->
+    <section class="cs-section" aria-labelledby="solution-heading">
+      <h2 id="solution-heading" class="cs-section-heading">Final Solution</h2>
+      <p>The prototype adds a feed toggle to Instagram's existing home screen, accessed through a small dropdown next to the current &ldquo;+&rdquo; icon, so it fits into an interface people already know rather than asking them to learn something new.</p>
+
+      <figure class="cs-figure cs-figure-portrait">
+        <span class="cs-figure-thumb">
+          <img src="../assets/instagram-feed/final-walkthrough-feed-toggle-poster.png" alt="Instagram home screen mockup showing a feed toggle dropdown open beneath the plus icon, listing saved feeds like For You, Recipes, Writing Inspo, and Alysa Liu Fan Edits, plus a Create New option">
+        </span>
+        <figcaption class="cs-figure-caption">A small dropdown next to the existing &ldquo;+&rdquo; icon holds saved custom feeds alongside the default feed, so switching between them takes one tap.</figcaption>
+      </figure>
+
+      <p>Building a new feed asks for only a few things: a name, and optionally specific accounts or hashtags to pull from, collaborators to share it with, and whether to let AI fill in additional suggested content. Feeds can be kept private or shared with other users, so a feed can work as a personal filter or as something built and used together with friends.</p>
+
+      <figure class="cs-figure cs-figure-portrait">
+        <span class="cs-figure-thumb">
+          <img src="../assets/instagram-feed/final-walkthrough-create-feed-poster.png" alt="New feed creation form mockup showing fields for feed name, collaborators, accounts, and hashtags, plus a toggle for including AI-suggested content">
+        </span>
+        <figcaption class="cs-figure-caption">Creating a feed only requires a name; everything else &mdash; collaborators, specific accounts, hashtags, and AI-suggested content &mdash; is optional, so the form stays short even for someone building a highly specific feed.</figcaption>
+      </figure>
+
+      <p>Once created, the feed sits alongside the default feed in the toggle menu and loads content matched to what the user defined. This design responds directly to what the research turned up: it gives users the control over their feed that they said they lacked, keeps the process of building that control optional and low-effort so it doesn't become its own source of overload, and includes an opt-in AI assist for anyone who wants curation without doing all the work of building a feed by hand.</p>
+
+      <div class="cs-video-wrap cs-video-final">
+        <p class="cs-video-label">Final walkthrough: real-time click-through</p>
+        <div class="cs-video-group cs-video-group-portrait">
+          <div>
+            <video class="cs-video" poster="../assets/instagram-feed/final-walkthrough-feed-toggle-poster.png" controls preload="none" aria-label="Real-time walkthrough of opening the feed toggle dropdown">
+              <source src="../assets/instagram-feed/final-walkthrough-feed-toggle.mp4" type="video/mp4">
+              Your browser does not support embedded video.
+            </video>
+            <p class="cs-video-note">Opening the feed toggle</p>
+          </div>
+          <div>
+            <video class="cs-video" poster="../assets/instagram-feed/final-walkthrough-create-feed-poster.png" controls preload="none" aria-label="Real-time walkthrough of creating a new custom feed">
+              <source src="../assets/instagram-feed/final-walkthrough-create-feed.mp4" type="video/mp4">
+              Your browser does not support embedded video.
+            </video>
+            <p class="cs-video-note">Creating a new feed</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Outcome -->
+    <section class="cs-section" aria-labelledby="outcome-heading">
+      <h2 id="outcome-heading" class="cs-section-heading">Outcome</h2>
+      <p>This prototype was not formally user-tested, so there is no usability data to report. Informally, classmates and the original interview subject responded well to the idea. The hope behind this feature is to give social media users real control over what shows up in their feed, including the option to see only specific kinds of posts, similar to how Pinterest lets users narrow in on specific pins or themes the algorithm has identified they like. The feature also gives users a choice about whether AI helps fill their feed, rather than having that curation built into the algorithm by default.</p>
+    </section>
+
+    <!-- 7. Reflection -->
+    <section class="cs-section cs-reflection" aria-labelledby="reflection-heading">
+      <h2 id="reflection-heading" class="cs-section-heading">Reflection</h2>
+      <p>Balancing control against overload was the central design challenge of this project. The research made it clear that customization only supports well-being when it doesn't ask too much of the user, and that constraint shaped decisions throughout, from keeping the create-a-feed form short to making the AI assist optional rather than automatic.</p>
+      <p>This was a short, fun project that addressed a need I have as a social media user myself, and it felt like an appropriate direction for the scope of the class assignment. Looking ahead, I'd like to explore other ways to make Instagram profiles more customizable, such as letting users choose a background color for their feed, change the layout of their bio, or add decorations to their profile photo.</p>
+    </section>
+  </main>
+
+  <nav class="site-nav">
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../work.html" class="active">Work</a></li>
+      <li><a href="../resume.html">Resume</a></li>
+    </ul>
+  </nav>
+
+  <footer class="site-footer">
+    &copy; 2026 Selah Pabon
+  </footer>
+
+</body>
+</html>
