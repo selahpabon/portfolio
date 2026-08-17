@@ -290,7 +290,7 @@ body.home .site-footer {
   overflow: hidden;
   border-top: 1px solid var(--brown-faint);
   border-bottom: 1px solid var(--brown-faint);
-  padding: 12px 0;
+  padding: 7px 0;
   flex: 0 0 auto;
   /* .hero-text sits vertically centered inside the flexible .hero block
      above, which leaves empty space below the buttons on most viewport
@@ -308,7 +308,7 @@ body.home .site-footer {
 .marquee-track {
   display: flex;
   width: max-content;
-  animation: marquee-scroll 22s linear infinite;
+  animation: marquee-scroll 38s linear infinite;
 }
 
 .marquee-set {
@@ -318,17 +318,17 @@ body.home .site-footer {
 
 .marquee-item {
   flex: 0 0 auto;
-  padding: 0 28px;
+  padding: 0 20px;
   font-family: var(--font-heading);
   font-weight: 500;
-  font-size: 0.95rem;
+  font-size: 0.75rem;
   letter-spacing: 0.02em;
   white-space: nowrap;
 }
 
 .marquee-item::after {
   content: '\2022';
-  margin-left: 28px;
+  margin-left: 20px;
   color: var(--brown-faint);
 }
 
