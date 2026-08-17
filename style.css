@@ -292,6 +292,13 @@ body.home .site-footer {
   border-bottom: 1px solid var(--brown-faint);
   padding: 12px 0;
   flex: 0 0 auto;
+  /* .hero-text sits vertically centered inside the flexible .hero block
+     above, which leaves empty space below the buttons on most viewport
+     heights. Pull the marquee up into that space so it reads as
+     directly under the buttons instead of floating near the nav. Reset
+     to 0 on the mobile breakpoint below, where .hero is no longer a
+     centered flex box and there's no such gap to close. */
+  margin-top: -70px;
 }
 
 .marquee-track {
@@ -1046,6 +1053,10 @@ body.panel-open {
 
   .hero-buttons {
     justify-content: center;
+  }
+
+  .marquee {
+    margin-top: 0;
   }
 
   .site-nav .nav-links {
