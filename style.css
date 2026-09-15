@@ -308,7 +308,7 @@ body.home .site-footer {
 .marquee-track {
   display: flex;
   width: max-content;
-  animation: marquee-scroll 38s linear infinite;
+  animation: marquee-scroll 60s linear infinite;
 }
 
 .marquee-set {
@@ -318,7 +318,6 @@ body.home .site-footer {
 
 .marquee-item {
   flex: 0 0 auto;
-  padding: 0 20px;
   font-family: var(--font-heading);
   font-weight: 500;
   font-size: 0.75rem;
@@ -326,9 +325,12 @@ body.home .site-footer {
   white-space: nowrap;
 }
 
+/* Equal margin on both sides centers the dot between this item's text
+   and the next item's text (previously only margin-left was set, plus
+   the items' own left/right padding, which put the dot off-center). */
 .marquee-item::after {
   content: '\2022';
-  margin-left: 20px;
+  margin: 0 32px;
   color: var(--brown-faint);
 }
 
