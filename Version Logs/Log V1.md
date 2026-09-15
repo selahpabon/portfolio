@@ -14,9 +14,13 @@ None this session — this was a copy update and process/documentation addition,
 ### Marquee copy updated to reflect current part-time work
 The home page marquee (added in Log V0) no longer says it's "looking for" work — it now names the actual part-time employers: *"Currently working part-time @: Woodard Cleaning & Restoration, The Gatesworth and Living Earth Collaborative. :)"* in [index.html](../index.html). All 13 occurrences (12 repeated `.marquee-item` spans + the wrapper's `aria-label`) were updated together so the visible ticker text and the screen-reader announcement stay in sync. "Restoraton" in the requested text was corrected to "Restoration" as an assumed typo.
 
+### Marquee slowed down and given more breathing room
+Scroll animation slowed from 38s to 60s per loop (`marquee-scroll` in [style.css](../style.css)), and the gap between repeated instances of the text widened as part of the dot-centering fix below.
+
 ## Bug fixes
 
-None this session.
+### Marquee separator dot wasn't centered between repeats
+`.marquee-item` had its own `20px` left/right padding *and* the separator dot (`::after`) had a `20px` left margin only. That put the dot 20px from the preceding text but 40px from the next (padding-right of one item + padding-left of the next), so it read as off-center. Fixed by removing the item's own padding entirely and giving the dot a symmetric `margin: 0 32px`, so it now sits centered between each pair of repeats with more space overall than before.
 
 ## Hosting/deployment
 
